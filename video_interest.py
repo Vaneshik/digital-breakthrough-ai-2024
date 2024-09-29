@@ -13,7 +13,7 @@ from transformers import VisionEncoderDecoderModel, ViTImageProcessor, AutoToken
 from transformers import ViTImageProcessor, ViTForImageClassification
 # import timm
 from tqdm import tqdm
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 # from IPython.display import Video
 from googletrans import Translator
 
@@ -150,10 +150,10 @@ class Interester:
 		intt = np.array([int(interesting_frames_indexes[i] * (len(x) / len(np_video)))
 		                 for i in range(num_interesting_frames)])
 		
-		# plt.plot(list(range(len(x))), x)
-		# plt.scatter(np.array(list(range(len(x))))[intt], x[intt], color='red', s=40, marker='o')
-		# plt.title(video_path)
-		# plt.show()
+		plt.plot(list(range(len(x))), x)
+		plt.scatter(np.array(list(range(len(x))))[intt], x[intt], color='red', s=40, marker='o')
+		plt.title(video_path)
+		plt.savefig('summary.png')
 		
 		if translate:
 			translator = Translator()
